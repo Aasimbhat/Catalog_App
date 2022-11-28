@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_30days/pages/home_page.dart';
 import 'package:flutter_30days/pages/login.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_30days/utils/routes.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
+//git push --set-upstream origin day-4
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -18,15 +18,14 @@ class MyApp extends StatelessWidget {
       
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
-        fontFamily: GoogleFonts.lato().fontFamily
      ),
       darkTheme: ThemeData(
         brightness:Brightness.dark
       ),
       initialRoute: "/login",
       routes: {
-        "/" :(context)=>HomePage(),
-        "/login" :(context)=>LoginPage(),
+        MyRoutes.loginRoute :(context)=>LoginPage(),
+        MyRoutes.homeRoute :(context)=>HomePage(),
       },
     );
   }
