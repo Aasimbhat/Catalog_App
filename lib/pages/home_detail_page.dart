@@ -32,8 +32,8 @@ class HomeDetailpage extends StatelessWidget {
                              ),
                           ),
                           
-                           child:"Buy".text.bold.make() 
-                           ).wh(100, 50)
+                           child:"Add To Cart".text.bold.make() 
+                           ).wh(120, 50)
                        ],
                 ).p32(),
       ) ,
@@ -45,7 +45,7 @@ class HomeDetailpage extends StatelessWidget {
                           tag: Key(catalog.id.toString()),
 
               child: Image.network(catalog.image),
-              ).h40(context),
+              ).h32(context),
               Expanded(
                 child: 
                 VxArc(
@@ -60,6 +60,7 @@ class HomeDetailpage extends StatelessWidget {
                       children: [
                         catalog.name.text.xl4.color(Colors.black).bold.make(),
               catalog.desc.text.xl.make(),
+              "Apple Inc. is an American multinational technology company headquartered in Cupertino, California, United States. Apple is the largest technology company by revenue (totaling US 365.8 billion in 2021) and, as of June 2022. ".text.make().p16()
               
                       ],
                     ),
