@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:flutter_30days/models/catalog.dart';
+import 'package:flutter_30days/pages/home_detail_page.dart';
 import 'package:flutter_30days/widgets/drawer.dart';
 import 'package:flutter_30days/widgets/item_widget.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -79,7 +80,13 @@ class CatalogList extends StatelessWidget {
       itemCount: CatalogModel.items.length,
       itemBuilder: (context, index) {
         final catalog =CatalogModel.items[index];
-        return CatalogItem(catalog: catalog);
+        return InkWell(
+          onTap: () =>Navigator.push(
+            context,MaterialPageRoute(
+              builder: (context)=>HomeDetailpage(
+                catalog: catalog)) ) ,
+          
+          child: CatalogItem(catalog: catalog));
       },
     );
   }
@@ -95,7 +102,9 @@ class CatalogItem extends StatelessWidget {
     return VxBox(
       child: Row(
         children: [
-          CatalogImage(image: catalog.image,),
+          Hero(
+            tag: Key(catalog.id.toString()),
+            child: CatalogImage(image: catalog.image,)),
           Expanded(
           child:Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,7 +117,7 @@ class CatalogItem extends StatelessWidget {
                     alignment: MainAxisAlignment.spaceBetween,
                     buttonPadding: EdgeInsets.zero,
                      children: [
-                      "\$${catalog.price}".text.bold.lg.make(),
+                      "\$${catalog.price}".text.bold.make(),
                       ElevatedButton(
                         onPressed: () {
                           
