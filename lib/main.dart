@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) { //build is a imp method where all ui related work happens
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       
       theme:MyTheme.ligthTheme,
       darkTheme: MyTheme.darkThemeTheme,

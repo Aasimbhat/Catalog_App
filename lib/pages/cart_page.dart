@@ -8,7 +8,7 @@ class CartPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: "Card".text.make(),
+        title: "Cart".text.make(),
       ),
     );
   }
