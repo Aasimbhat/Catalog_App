@@ -36,10 +36,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:Colors.purple[50] ,
+      backgroundColor:Colors.grey[400] ,
       floatingActionButton: FloatingActionButton(
         onPressed: () =>Navigator.pushNamed(context, MyRoutes.cardRoute),
-        backgroundColor: Colors.blue[600],
+        backgroundColor: Colors.blueGrey[900],
         child: Icon(CupertinoIcons.cart),
       ),
       
@@ -108,7 +108,9 @@ class CatalogItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return VxBox(
+      
       child: Row(
+        
         children: [
           Hero(
             tag: Key(catalog.id.toString()),
@@ -131,7 +133,7 @@ class CatalogItem extends StatelessWidget {
                           
                         },
                         style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
+                          backgroundColor: MaterialStateProperty.all(Colors.blueGrey[900]),
                            shape: MaterialStateProperty.all(
                             StadiumBorder()
                            ),
