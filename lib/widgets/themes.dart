@@ -32,7 +32,7 @@ class MyTheme{
         appBarTheme: AppBarTheme(
           color: Colors.black,
           elevation: 0,
-          iconTheme: IconThemeData(color: Colors.black),
+          iconTheme: IconThemeData(color: Colors.white),
           titleTextStyle: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 24)
         )
      );

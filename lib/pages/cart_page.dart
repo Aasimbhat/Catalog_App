@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:velocity_x/src/extensions/string_ext.dart';
+import 'package:velocity_x/velocity_x.dart';
+
 
 class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+              backgroundColor:context.canvasColor,
+
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: "Cart".text.make(),
+        title: "Cart".text.color(context.accentColor).make(),
       ),
     );
   }
