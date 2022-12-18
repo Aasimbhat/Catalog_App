@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_30days/utils/routes.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -31,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white,
+      color: context.canvasColor,
      child: SingleChildScrollView(
        child: Form(
         key:_formKey ,
@@ -45,7 +46,9 @@ class _LoginPageState extends State<LoginPage> {
             Text("Welcome $name",
             style:TextStyle(
               fontSize: 24,
-              fontWeight: FontWeight.bold
+              fontWeight: FontWeight.bold,
+              color: context.accentColor,
+              
             ),),
               SizedBox(
               height: 20,
@@ -57,7 +60,8 @@ class _LoginPageState extends State<LoginPage> {
                   TextFormField(
                 decoration: InputDecoration(
                   hintText: "Enter Username",
-                  labelText: "Usrname"
+                  hintStyle: TextStyle(color: context.accentColor),
+                  labelText: "Usrname",labelStyle:  TextStyle(color: context.accentColor)
                 ),
                 validator: (value){
                   if(value!.isEmpty){
@@ -77,8 +81,8 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: true,
                 decoration: InputDecoration(
                   
-                  hintText: "Enter Password",
-                  labelText: "Password"
+                  hintText: "Enter Password",hintStyle: TextStyle(color: context.accentColor),
+                  labelText: "Password",labelStyle:  TextStyle(color: context.accentColor)
                 ),
                    validator: (value){
                   if(value!.isEmpty){
@@ -106,21 +110,13 @@ class _LoginPageState extends State<LoginPage> {
                 color: Colors.white,
                 ),),
                 decoration: BoxDecoration(
-                  color: Colors.deepPurple,
+                  // ignore: deprecated_member_use
+                  color:context.theme.buttonColor ,
                   borderRadius: BorderRadius.circular(changeButton?50 :8)
                 ),
               ),
             )
-            // ElevatedButton( 
-            //   child: Text("Login"),
-            //   style: TextButton.styleFrom(
-            //     minimumSize: (Size(140, 50))
-            //   ),
-              
-            //   onPressed: (){
-            //     Navigator.pushNamed(context, MyRoutes.homeRoute);
             
-            //   },)
               ],
              ),
            )

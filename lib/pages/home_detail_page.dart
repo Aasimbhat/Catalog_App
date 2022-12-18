@@ -15,9 +15,10 @@ class HomeDetailpage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.blueGrey[900],
       bottomNavigationBar: Container(
-        color: Colors.white,
+        height: 80,
+        color: context.cardColor,
         child: ButtonBar(
           
           alignment: MainAxisAlignment.spaceBetween,
@@ -28,7 +29,8 @@ class HomeDetailpage extends StatelessWidget {
                     onPressed: () {},
                     style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all(Colors.blueGrey[900]),
+                          // ignore: deprecated_member_use
+                          MaterialStateProperty.all(context.theme.buttonColor),
                       shape: MaterialStateProperty.all(StadiumBorder()),
                     ),
                     child: "Add To Cart".text.bold.make())
@@ -44,28 +46,35 @@ class HomeDetailpage extends StatelessWidget {
               tag: Key(catalog.id.toString()),
               child: Image.network(catalog.image),
               
-            ).h32(context),
+            ).h24(context),
+            
             Expanded(
               child: VxArc(
-                height: 15.0,
+                height: 20.0,
                 arcType: VxArcType.CONVEY,
                 edge: VxEdge.TOP,
+                
                 child: Container(
-                  color: Colors.white,
+                  
+                  color: context.canvasColor,
                   width: context.screenWidth,
                   child: Column(
                     children: [
-                      catalog.name.text.xl4.color(Colors.black).bold.make().p16(),
-                      catalog.desc.text.xl.make(),
+                      catalog.name.text.xl4.color(context.accentColor).bold.make().p16(),
+                      catalog.desc.text.xl.color(context.accentColor).make(),
                       "Apple Inc. is an American multinational technology company headquartered in Cupertino, California, United States. Apple is the largest technology company by revenue and, as of June 2022. "
-                          .text
+                          .text.color(context.accentColor)
                           .make()
                           .p16()
                     ],
                   ),
+                  
                 ),
+                
               ),
-            )
+              
+            ),
+            
           ],
         ).py64(),
       ),

@@ -16,11 +16,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) { //build is a imp method where all ui related work happens
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.dark,
       
       theme:MyTheme.ligthTheme,
-      darkTheme: MyTheme.darkThemeTheme,
-      initialRoute:MyRoutes.homeRoute ,
+      darkTheme: MyTheme.darkTheme,
+      initialRoute:MyRoutes.loginRoute ,
       routes: {
         MyRoutes.loginRoute :(context)=>LoginPage(),
         MyRoutes.homeRoute :(context)=>HomePage(),

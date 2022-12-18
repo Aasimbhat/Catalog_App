@@ -36,11 +36,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:Colors.grey[400] ,
+      backgroundColor:context.canvasColor,
       floatingActionButton: FloatingActionButton(
         onPressed: () =>Navigator.pushNamed(context, MyRoutes.cardRoute),
-        backgroundColor: Colors.blueGrey[900],
-        child: Icon(CupertinoIcons.cart),
+        // ignore: deprecated_member_use
+        backgroundColor:context.theme.buttonColor ,
+        child: Icon(CupertinoIcons.cart,color: Colors.white,),
       ),
       
       body:SafeArea(
@@ -71,8 +72,8 @@ class CatalogHeader extends StatelessWidget {
     return  Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              "Catalog App".text.xl5.bold.color(Colors.blueGrey[900]).make(),
-              "Trending Poducts".text.xl2.make()
+              "Catalog App".text.xl5.color(context.accentColor).bold.make(),
+              "Trending Poducts".text.xl2.color(context.accentColor).make()
             ],
           );
   }
@@ -120,20 +121,21 @@ class CatalogItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              catalog.name.text.lg.color(Colors.black).bold.make(),
-              catalog.desc.text.make(),
+              catalog.name.text.lg.color(context.accentColor).bold.make(),
+              catalog.desc.text.color(context.accentColor).make(),
               10.heightBox,
               ButtonBar(
                     alignment: MainAxisAlignment.spaceBetween,
                     buttonPadding: EdgeInsets.zero,
                      children: [
-                      "\$${catalog.price}".text.bold.make(),
+                      "\$${catalog.price}".text.bold.color(context.accentColor).make(),
                       ElevatedButton(
                         onPressed: () {
                           
                         },
                         style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(Colors.blueGrey[900]),
+                          // ignore: deprecated_member_use
+                          backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
                            shape: MaterialStateProperty.all(
                             StadiumBorder()
                            ),
@@ -148,7 +150,7 @@ class CatalogItem extends StatelessWidget {
         ],
         
       )
-    ).white.roundedLg.square(150).make().py16();
+    ).color(context.cardColor).roundedLg.square(150).make().py16();
   }
 }
 
