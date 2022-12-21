@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_30days/models/catalog.dart';
 import 'package:velocity_x/velocity_x.dart';
+
+import 'package:flutter_30days/models/catalog.dart';
 
 class HomeDetailpage extends StatelessWidget {
   final Item catalog;
