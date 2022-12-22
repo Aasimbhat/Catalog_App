@@ -40,6 +40,9 @@ class _CardTotal extends StatelessWidget {
           "\$9999".text.xl4.color(context.accentColor).make(),
           30.widthBox,
          ElevatedButton(onPressed:(){
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: "Buying not supported yet.".text.make(),
+              ));
 
          },
           style: ButtonStyle(
