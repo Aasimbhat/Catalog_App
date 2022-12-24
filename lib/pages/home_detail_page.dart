@@ -39,50 +39,47 @@ class HomeDetailpage extends StatelessWidget {
           ],
         )
       ),
-      body: SafeArea(
-        bottom: false,
-        child: Column(
-          children: [
-            Hero(
-              tag: Key(catalog.id.toString()),
-              child: Image.network(catalog.image),
+      body: Column(
+        children: [
+          Hero(
+            tag: Key(catalog.id.toString()),
+            child: Image.network(catalog.image),
+            
+          ).h32(context),
+         
+          Expanded(
+            child: VxArc(
+              height: 30.0,
+              arcType: VxArcType.CONVEY,
+              edge: VxEdge.TOP,
               
-            ).h32(context),
-           
-            Expanded(
-              child: VxArc(
-                height: 30.0,
-                arcType: VxArcType.CONVEY,
-                edge: VxEdge.TOP,
+              child: Container(
                 
-                child: Container(
-                  
-                  color: context.canvasColor,
-                  width: context.screenWidth,
-                  height: 90,
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      children: [
-                        catalog.name.text.xl4.color(context.accentColor).bold.make().p16(),
-                        catalog.desc.text.xl.color(context.accentColor).make(),
-                        "Apple Inc. is an American multinational technology company headquartered in Cupertino, California, United States. Apple is the largest technology company by revenue and, as of June 2022. "
-                            .text.color(context.accentColor)
-                            .make()
-                            .p4()
-                      ],
-                    ),
+                color: context.canvasColor,
+                width: context.screenWidth,
+                height: 90,
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      catalog.name.text.xl4.color(context.accentColor).bold.make().p16(),
+                      catalog.desc.text.xl.color(context.accentColor).make(),
+                      "Apple Inc. is an American multinational technology company headquartered in Cupertino, California, United States. "
+                          .text.color(context.accentColor)
+                          .make()
+                          
+                    ],
                   ),
-                  
                 ),
                 
               ),
               
             ),
             
-          ],
-        ).py64(),
-      ),
+          ),
+          
+        ],
+      ).py64(),
     );
   }
 }
